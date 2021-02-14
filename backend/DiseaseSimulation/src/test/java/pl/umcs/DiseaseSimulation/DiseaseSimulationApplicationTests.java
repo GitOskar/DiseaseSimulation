@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.DiseaseSimulation;
+package pl.umcs.DiseaseSimulation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

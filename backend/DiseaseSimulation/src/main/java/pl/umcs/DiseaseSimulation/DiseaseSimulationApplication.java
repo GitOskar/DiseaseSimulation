@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.DiseaseSimulation;
+package pl.umcs.DiseaseSimulation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
