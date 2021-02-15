@@ -1,13 +1,14 @@
 package pl.umcs.DiseaseSimulation.domain.agregate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.umcs.DiseaseSimulation.domain.primitive.BaseEntity;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@AllArgsConstructor
 @Data @NoArgsConstructor
 @Entity @Table(name = "SIMULATION")
 public class Simulation extends BaseEntity
@@ -44,4 +45,6 @@ public class Simulation extends BaseEntity
     private double infectionReductionByRestrictions;
     @Column(name = "DAYS_OF_SIMULATION")
     private int daysOfSimulation;
+    @OneToMany(mappedBy = "simulation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Record> records;
 }
