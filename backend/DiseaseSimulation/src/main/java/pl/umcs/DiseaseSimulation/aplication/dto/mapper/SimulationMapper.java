@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.aplication.mapper;
+package pl.umcs.DiseaseSimulation.aplication.dto.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

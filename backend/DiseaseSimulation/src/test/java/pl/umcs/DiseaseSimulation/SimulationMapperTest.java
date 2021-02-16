@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.umcs.DiseaseSimulation.aplication.dto.RecordSummaryDto;
 import pl.umcs.DiseaseSimulation.aplication.dto.SimulationSummaryDto;
-import pl.umcs.DiseaseSimulation.aplication.mapper.SimulationMapper;
+import pl.umcs.DiseaseSimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.DiseaseSimulation.domain.agregate.Record;
 import pl.umcs.DiseaseSimulation.domain.agregate.Simulation;
 
@@ -35,7 +35,6 @@ public class SimulationMapperTest
                         0.4, 0.5, 9,
                         records
                 );
-
         SimulationSummaryDto simulationSummaryDto = mapper.SimulationToSimulationSummaryDto(simulation);
 
         Assertions.assertTrue(
@@ -53,14 +52,13 @@ public class SimulationMapperTest
         );
 
         SimulationSummaryDto simulationSummaryDto = new SimulationSummaryDto(
-                "Example name", 0L, 1L, 0.1, 2, 3,
+                1, "Example name", 0L, 1L, 0.1, 2, 3,
                         4, 5, 6, 7,
                         0.2, 8, 0.3,
                         0.4, 0.5, 9,
                         records
                 );
         Simulation simulation = mapper.SimulationSummaryDtoToSimulation(simulationSummaryDto);
-
         Assertions.assertTrue(
                 areSimulationsEquals(simulation, simulationSummaryDto)
         );
@@ -70,7 +68,8 @@ public class SimulationMapperTest
 
     boolean areSimulationsEquals(Simulation simulation, SimulationSummaryDto simulationSummaryDto)
     {
-        return  simulation.getName().equals(simulationSummaryDto.getName()) &&
+        return  simulation.getId() == simulationSummaryDto.getId() &&
+                simulation.getName().equals(simulationSummaryDto.getName()) &&
                 simulation.getPopulation() == simulationSummaryDto.getPopulation() &&
                 simulation.getInitialInfectedNumber() == simulationSummaryDto.getInitialInfectedNumber() &&
                 simulation.getMortalityRate() == simulationSummaryDto.getMortalityRate() &&

@@ -47,4 +47,9 @@ public class Simulation extends BaseEntity
     private int daysOfSimulation;
     @OneToMany(mappedBy = "simulation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Record> records;
+
+    void deleteAllRecords()
+    {
+        records.clear();
+    }
 }

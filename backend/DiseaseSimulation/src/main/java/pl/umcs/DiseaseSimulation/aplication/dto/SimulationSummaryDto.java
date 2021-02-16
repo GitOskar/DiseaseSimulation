@@ -7,6 +7,7 @@ import java.util.List;
 @Data @AllArgsConstructor
 public class SimulationSummaryDto
 {
+    private Integer id;
     private String name;
     private Long population;
     private Long initialInfectedNumber;

@@ -21,4 +21,37 @@ public class Record extends BaseEntity
     private long immune;
     @ManyToOne @JoinColumn(name = "SIMULATION_ID")
     Simulation simulation;
+
+    public Record(Record record)
+    {
+        this.infected = record.getInfected();
+        this.death = record.getDeath();
+        this.immune = record.getImmune();
+        this.susceptible = record.getSusceptible();
+        this.simulation = record.getSimulation();
+    }
+
+    public void addDeaths(long newDeaths)
+    {
+        this.death += newDeaths;
+        this.infected -= newDeaths;
+    }
+
+    public void addInfected(long newInfected)
+    {
+        this.infected += newInfected;
+        this.susceptible -= newInfected;
+    }
+
+    public void addImmune(long newResistant)
+    {
+        this.immune += newResistant;
+        this.infected -= newResistant;
+    }
+
+    public void endOfImmunity(long newSusceptible)
+    {
+        immune -= newSusceptible;
+        susceptible += newSusceptible;
+    }
 }
