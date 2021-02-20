@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.Assertions;
 
 @SpringBootTest
-class DiseaseSimulationApplicationTests {
+class DiseaseSirApplicationTests {
 
 	@Test
 	void contextLoads()

@@ -1,15 +1,18 @@
 package pl.umcs.DiseaseSimulation.domain.primitive;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
 @MappedSuperclass
-public class BaseEntity
-{
-    @Id @Column(name = "id")
+@Getter @Setter @SuperBuilder
+@NoArgsConstructor @AllArgsConstructor
+public abstract class BaseEntity {
+    @Id @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter
     protected Integer id;
 }
