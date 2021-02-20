@@ -1,8 +1,8 @@
-package pl.umcs.DiseaseSimulation.aplication.dto.sir;
+package pl.umcs.diseasesimulation.aplication.dto.sir;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 
 @Mapper(componentModel = "spring")
 public interface SirMapper {

@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.aplication.dto.sir;
+package pl.umcs.diseasesimulation.aplication.dto.sir;
 
 import lombok.*;
 

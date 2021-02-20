@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.domain.primitive;
+package pl.umcs.diseasesimulation.domain.primitive;
 
 public interface Record {
 }

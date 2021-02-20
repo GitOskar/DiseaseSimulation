@@ -1,13 +1,13 @@
-package pl.umcs.DiseaseSimulation.aplication.service;
+package pl.umcs.diseasesimulation.aplication.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirDto;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirMapper;
-import pl.umcs.DiseaseSimulation.aplication.modelingmethods.SirRecordCreator;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
-import pl.umcs.DiseaseSimulation.infrastructure.persistance.SirRepository;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirMapper;
+import pl.umcs.diseasesimulation.aplication.modelingmethods.SirRecordCreator;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.infrastructure.persistance.SirRepository;
 
 import java.util.stream.Collectors;
 import java.util.List;

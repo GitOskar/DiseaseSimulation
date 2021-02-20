@@ -1,10 +1,10 @@
-package pl.umcs.DiseaseSimulation.presentation;
+package pl.umcs.diseasesimulation.presentation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirDto;
-import pl.umcs.DiseaseSimulation.aplication.service.SirService;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
+import pl.umcs.diseasesimulation.aplication.service.SirService;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 import java.util.List;
 
 @RestController

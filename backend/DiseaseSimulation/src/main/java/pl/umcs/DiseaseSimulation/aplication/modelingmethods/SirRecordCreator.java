@@ -1,7 +1,7 @@
-package pl.umcs.DiseaseSimulation.aplication.modelingmethods;
+package pl.umcs.diseasesimulation.aplication.modelingmethods;
 
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.SirRecord;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.domain.agregate.sir.SirRecord;
 
 import java.util.ArrayList;
 import java.util.List;

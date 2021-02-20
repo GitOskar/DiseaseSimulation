@@ -1,4 +1,4 @@
-package pl.umcs.DiseaseSimulation.domain.excaption;
+package pl.umcs.diseasesimulation.domain.excaption;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

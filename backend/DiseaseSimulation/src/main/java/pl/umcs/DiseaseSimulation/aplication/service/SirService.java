@@ -1,7 +1,7 @@
-package pl.umcs.DiseaseSimulation.aplication.service;
+package pl.umcs.diseasesimulation.aplication.service;
 
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirDto;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 
 import java.util.List;
 

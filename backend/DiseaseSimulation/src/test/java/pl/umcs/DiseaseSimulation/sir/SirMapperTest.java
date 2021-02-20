@@ -1,13 +1,13 @@
-package pl.umcs.DiseaseSimulation.sir;
+package pl.umcs.diseasesimulation.sir;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirRecordDto;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirDto;
-import pl.umcs.DiseaseSimulation.aplication.dto.sir.SirMapper;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.SirRecord;
-import pl.umcs.DiseaseSimulation.domain.agregate.sir.Sir;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirRecordDto;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
+import pl.umcs.diseasesimulation.aplication.dto.sir.SirMapper;
+import pl.umcs.diseasesimulation.domain.agregate.sir.SirRecord;
+import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 
 import java.util.Arrays;
 import java.util.List;

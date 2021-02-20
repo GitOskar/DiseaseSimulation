@@ -1,9 +1,8 @@
-package pl.umcs.DiseaseSimulation.domain.agregate.sir;
+package pl.umcs.diseasesimulation.domain.agregate.sir;
 
 import lombok.*;
-import pl.umcs.DiseaseSimulation.domain.primitive.BaseEntity;
-import pl.umcs.DiseaseSimulation.domain.primitive.Record;
-import pl.umcs.DiseaseSimulation.domain.primitive.Simulation;
+import pl.umcs.diseasesimulation.domain.primitive.BaseEntity;
+import pl.umcs.diseasesimulation.domain.primitive.Record;
 
 import javax.persistence.*;
 
