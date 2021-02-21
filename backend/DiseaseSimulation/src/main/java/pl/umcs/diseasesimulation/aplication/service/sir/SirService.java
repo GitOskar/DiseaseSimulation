@@ -1,4 +1,4 @@
-package pl.umcs.diseasesimulation.aplication.service;
+package pl.umcs.diseasesimulation.aplication.service.sir;
 
 import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
 import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;

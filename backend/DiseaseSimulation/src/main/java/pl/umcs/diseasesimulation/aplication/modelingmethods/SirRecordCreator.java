@@ -65,12 +65,41 @@ public class SirRecordCreator {
         return (day-1)%2;
     }
 
-    private SirRecord createNextRecord(double s, double i, double r)
-    {
+    private SirRecord createNextRecord(double s, double i, double r) {
+        int diff = (int) (Math.round(population) - Math.floor(s) - Math.floor(i) - Math.floor(r));
+        s += diff/3;
+        i += diff/3;
+        r += diff/3;
+
+        if (diff % 3 == 1) {
+            double maxFractional = MathUtils.maxFractional(s, i, r);
+            if (MathUtils.fractional(s) == maxFractional)
+                s++;
+            else if (MathUtils.fractional(i) == maxFractional)
+                i++;
+            else
+                r++;
+        }
+        else if (diff % 3 == 2) {
+            double minFractional = MathUtils.minFractional(s, i, r);
+            if (MathUtils.fractional(s) == minFractional) {
+                i++;
+                r++;
+            }
+            else if (MathUtils.fractional(i) == minFractional) {
+                s++;
+                r++;
+            }
+            else {
+                i++;
+                s++;
+            }
+        }
+
         return SirRecord.builder()
-                .susceptible(Math.round(s))
-                .infected(Math.round(i))
-                .removed(Math.round(r))
+                .susceptible((long) s + diff/3)
+                .infected((long) i + diff/3)
+                .removed((long) r + diff/3)
                 .sir(simulation)
                 .build();
     }

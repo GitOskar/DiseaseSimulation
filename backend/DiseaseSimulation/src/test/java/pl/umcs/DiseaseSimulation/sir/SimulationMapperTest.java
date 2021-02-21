@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.umcs.diseasesimulation.aplication.dto.sir.SirRecordDto;
 import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
-import pl.umcs.diseasesimulation.aplication.dto.sir.SirMapper;
+import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.diseasesimulation.domain.agregate.sir.SirRecord;
 import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 
@@ -14,9 +14,9 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 
 @SpringBootTest
-public class SirMapperTest {
+public class SimulationMapperTest {
     @Autowired
-    SirMapper mapper;
+    SimulationMapper mapper;
 
     @Test
     void mapped_simulation_is_equal_to_simulation_summary_dto() {

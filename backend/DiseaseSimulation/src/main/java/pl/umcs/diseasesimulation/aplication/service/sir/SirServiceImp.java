@@ -1,10 +1,10 @@
-package pl.umcs.diseasesimulation.aplication.service;
+package pl.umcs.diseasesimulation.aplication.service.sir;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
-import pl.umcs.diseasesimulation.aplication.dto.sir.SirMapper;
+import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.diseasesimulation.aplication.modelingmethods.SirRecordCreator;
 import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 import pl.umcs.diseasesimulation.infrastructure.persistance.SirRepository;
@@ -17,7 +17,7 @@ public class SirServiceImp implements SirService {
     @Autowired
     SirRepository repository;
     @Autowired
-    SirMapper mapper;
+    SimulationMapper mapper;
 
     public SirServiceImp(SirRepository repository) {
         this.repository = repository;

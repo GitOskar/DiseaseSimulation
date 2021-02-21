@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity @Table(name = "SIR")
 public class Sir extends Simulation {
     @Column(name = "DISEASE_DURATION")
-    int diseaseDuration;
+    private int diseaseDuration;
     @Column(name = "BIRTH_RATE")
     private double birthRate;
     @Column(name = "DEATH_RATE")
