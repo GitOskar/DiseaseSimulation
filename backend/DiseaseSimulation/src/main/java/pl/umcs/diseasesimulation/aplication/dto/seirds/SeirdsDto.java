@@ -23,5 +23,6 @@ public class SeirdsDto {
     private Double reductionByRestrictions;
     private Double percentageOfPopulationWhenRestrictionsBegins;
     private Double percentageOfPopulationWhenRestrictionsEnds;
+    private Double infectiousTime;
     private List<SeirdsRecordDto> records;
 }

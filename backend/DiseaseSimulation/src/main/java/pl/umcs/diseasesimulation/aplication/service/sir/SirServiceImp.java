@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.umcs.diseasesimulation.aplication.dto.sir.SirDto;
 import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
-import pl.umcs.diseasesimulation.aplication.modelingmethods.SirRecordCreator;
+import pl.umcs.diseasesimulation.aplication.modelingmethods.sir.SirRecordCreator;
 import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 import pl.umcs.diseasesimulation.infrastructure.persistance.SirRepository;
 

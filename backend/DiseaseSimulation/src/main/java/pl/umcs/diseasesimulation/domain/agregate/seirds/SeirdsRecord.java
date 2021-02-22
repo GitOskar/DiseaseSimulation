@@ -20,6 +20,8 @@ public class SeirdsRecord extends BaseEntity implements Record {
     private long recovered;
     @Column(name = "DEATHS")
     private long deaths;
+    @Column(name = "QUARANTINED")
+    private long quarantined;
     @ManyToOne @JoinColumn(name = "SIMULATION_ID")
     private Seirds simulation;
 }

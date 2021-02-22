@@ -3,7 +3,7 @@ package pl.umcs.diseasesimulation.sir;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.umcs.diseasesimulation.aplication.modelingmethods.SirRecordCreator;
+import pl.umcs.diseasesimulation.aplication.modelingmethods.sir.SirRecordCreator;
 import pl.umcs.diseasesimulation.domain.agregate.sir.Sir;
 
 @SpringBootTest

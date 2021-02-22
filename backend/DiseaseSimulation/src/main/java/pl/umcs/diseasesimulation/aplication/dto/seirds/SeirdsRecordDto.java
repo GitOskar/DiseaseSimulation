@@ -13,4 +13,5 @@ public class SeirdsRecordDto {
     private Long exposed;
     private Long recovered;
     private Long deaths;
+    private Long quarantined;
 }

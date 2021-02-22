@@ -22,9 +22,9 @@ public class SimulationMapperTest {
     @Test
     void mapped_simulation_is_equal_to_simulation_summary_dto() {
         List<SeirdsRecord> records = Arrays.asList(
-                new SeirdsRecord(1, 2, 3, 4, 2, null),
-                new SeirdsRecord(5, 1, 2, 3, 1, null),
-                new SeirdsRecord(8, 1, 3, 2, 1, null)
+                new SeirdsRecord(1, 2, 3, 4, 2, 2, null),
+                new SeirdsRecord(5, 1, 2, 3, 1, 5, null),
+                new SeirdsRecord(8, 1, 3, 2, 1, 0, null)
         );
         Seirds simulation = Seirds.builder()
                 .name("Example name")
@@ -41,6 +41,7 @@ public class SimulationMapperTest {
                 .percentageOfPopulationWhenRestrictionsEnds(4)
                 .quarantineRate(0.2)
                 .reductionByRestrictions(2)
+                .infectiousTime(32.5)
                 .records(records)
                 .build();
 
@@ -52,9 +53,9 @@ public class SimulationMapperTest {
     @Test
     void mapped_simulation_dto_is_equal_to_simulation() {
         List<SeirdsRecordDto> records = Arrays.asList(
-                new SeirdsRecordDto(1L, 2L, 3L, 4L, 2L),
-                new SeirdsRecordDto(5L, 1L, 2L, 3L, 1L),
-                new SeirdsRecordDto(8L, 1L, 3L, 2L, 1L)
+                new SeirdsRecordDto(1L, 2L, 3L, 4L, 2L, 5L),
+                new SeirdsRecordDto(5L, 1L, 2L, 3L, 1L, 4L),
+                new SeirdsRecordDto(8L, 1L, 3L, 2L, 1L, 9L)
         );
         SeirdsDto simulationDto = SeirdsDto.builder()
                 .name("Example name")
@@ -73,9 +74,8 @@ public class SimulationMapperTest {
                 .reductionByRestrictions(2.0)
                 .records(records)
                 .diseaseDuration(3.2)
+                .infectiousTime(91.2)
                 .build();
-
-        System.out.println(simulationDto);
 
         Seirds simulation = mapper.SeirdsDtoToSeirds(simulationDto);
 
@@ -98,6 +98,7 @@ public class SimulationMapperTest {
         Assertions.assertEquals(simulation.getPercentageOfPopulationWhenRestrictionsEnds(), simulationDto.getPercentageOfPopulationWhenRestrictionsEnds());
         Assertions.assertEquals(simulation.getQuarantineRate(), simulationDto.getQuarantineRate());
         Assertions.assertEquals(simulation.getReductionByRestrictions(), simulationDto.getReductionByRestrictions());
+        Assertions.assertEquals(simulation.getInfectiousTime(), simulationDto.getInfectiousTime());
         areRecordsEquals(simulation.getRecords(), simulationDto.getRecords());
     }
 
@@ -109,6 +110,7 @@ public class SimulationMapperTest {
             Assertions.assertEquals(records.get(i).getSusceptible(), recordsDto.get(i).getSusceptible());
             Assertions.assertEquals(records.get(i).getDeaths(), recordsDto.get(i).getDeaths());
             Assertions.assertEquals(records.get(i).getExposed(), recordsDto.get(i).getExposed());
+            Assertions.assertEquals(records.get(i).getQuarantined(), recordsDto.get(i).getQuarantined());
         }
     }
 }

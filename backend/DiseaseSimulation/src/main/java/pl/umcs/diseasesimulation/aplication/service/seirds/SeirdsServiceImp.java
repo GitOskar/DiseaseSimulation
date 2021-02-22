@@ -2,6 +2,7 @@ package pl.umcs.diseasesimulation.aplication.service.seirds;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.diseasesimulation.aplication.dto.seirds.SeirdsDto;
 import pl.umcs.diseasesimulation.domain.agregate.seirds.Seirds;
@@ -40,7 +41,7 @@ public class SeirdsServiceImp implements SeridsService {
         return null;
     }
 
-    @Override
+    @Override @Transactional
     public void deleteSimulation(int id) {
         repository.deleteById(id);
     }

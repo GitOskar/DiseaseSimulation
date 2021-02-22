@@ -34,6 +34,8 @@ public class Seirds extends Simulation {
     private double percentageOfPopulationWhenRestrictionsBegins;
     @Column(name = "PERCENTAGE_OF_POPULATION_WHEN_RESTRICTIONS_ENDS")
     private double percentageOfPopulationWhenRestrictionsEnds;
+    @Column(name = "INFECTIOUS_TIME")
+    private double infectiousTime;
     @OneToMany(mappedBy = "simulation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SeirdsRecord> records;
 }
