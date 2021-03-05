@@ -4,8 +4,11 @@ import lombok.*;
 
 import java.util.List;
 
-@AllArgsConstructor @Builder
-@Getter @Setter @Data
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
+@Data
 public class SeirdsDto {
     private Integer id;
     private String name;
@@ -22,7 +25,9 @@ public class SeirdsDto {
     private Double diseaseDeathRate;
     private Double reductionByRestrictions;
     private Double percentageOfPopulationWhenRestrictionsBegins;
-    private Double percentageOfPopulationWhenRestrictionsEnds;
+    private Double daysOfRestrictions;
     private Double infectiousTime;
+    private Double timeOfOnsetOfSymptoms;
+    private Double timeOfDyingFromIncubation;
     private List<SeirdsRecordDto> records;
 }

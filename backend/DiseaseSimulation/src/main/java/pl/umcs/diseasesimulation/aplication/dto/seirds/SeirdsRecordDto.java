@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor @Builder
-@Getter @Setter
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
 public class SeirdsRecordDto {
     private Long susceptible;
-    private Long infected;
     private Long exposed;
+    private Long infected;
     private Long recovered;
     private Long deaths;
     private Long quarantined;

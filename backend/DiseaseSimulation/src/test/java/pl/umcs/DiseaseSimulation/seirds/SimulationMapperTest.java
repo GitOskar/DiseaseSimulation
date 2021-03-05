@@ -22,9 +22,9 @@ public class SimulationMapperTest {
     @Test
     void mapped_simulation_is_equal_to_simulation_summary_dto() {
         List<SeirdsRecord> records = Arrays.asList(
-                new SeirdsRecord(1, 2, 3, 4, 2, 2, null),
-                new SeirdsRecord(5, 1, 2, 3, 1, 5, null),
-                new SeirdsRecord(8, 1, 3, 2, 1, 0, null)
+                new SeirdsRecord(1, 2, 3, 4, 2, 2),
+                new SeirdsRecord(5, 1, 2, 3, 1, 5),
+                new SeirdsRecord(8, 1, 3, 2, 1, 0)
         );
         Seirds simulation = Seirds.builder()
                 .name("Example name")
@@ -38,10 +38,12 @@ public class SimulationMapperTest {
                 .immunityTime(21.2)
                 .incubationTime(2)
                 .percentageOfPopulationWhenRestrictionsBegins(3)
-                .percentageOfPopulationWhenRestrictionsEnds(4)
+                .daysOfRestrictions(4)
                 .quarantineRate(0.2)
                 .reductionByRestrictions(2)
                 .infectiousTime(32.5)
+                .timeOfOnsetOfSymptoms(21.5)
+                .timeOfDyingFromIncubation(2.1)
                 .records(records)
                 .build();
 
@@ -69,12 +71,14 @@ public class SimulationMapperTest {
                 .immunityTime(21.2)
                 .incubationTime(2.0)
                 .percentageOfPopulationWhenRestrictionsBegins(3.0)
-                .percentageOfPopulationWhenRestrictionsEnds(4.0)
+                .daysOfRestrictions(4.0)
                 .quarantineRate(0.2)
                 .reductionByRestrictions(2.0)
                 .records(records)
                 .diseaseDuration(3.2)
                 .infectiousTime(91.2)
+                .timeOfOnsetOfSymptoms(1.1)
+                .timeOfDyingFromIncubation(3.4)
                 .build();
 
         Seirds simulation = mapper.SeirdsDtoToSeirds(simulationDto);
@@ -95,10 +99,12 @@ public class SimulationMapperTest {
         Assertions.assertEquals(simulation.getImmunityTime(), simulationDto.getImmunityTime());
         Assertions.assertEquals(simulation.getIncubationTime(), simulationDto.getIncubationTime());
         Assertions.assertEquals(simulation.getPercentageOfPopulationWhenRestrictionsBegins(), simulationDto.getPercentageOfPopulationWhenRestrictionsBegins());
-        Assertions.assertEquals(simulation.getPercentageOfPopulationWhenRestrictionsEnds(), simulationDto.getPercentageOfPopulationWhenRestrictionsEnds());
+        Assertions.assertEquals(simulation.getDaysOfRestrictions(), simulationDto.getDaysOfRestrictions());
         Assertions.assertEquals(simulation.getQuarantineRate(), simulationDto.getQuarantineRate());
         Assertions.assertEquals(simulation.getReductionByRestrictions(), simulationDto.getReductionByRestrictions());
         Assertions.assertEquals(simulation.getInfectiousTime(), simulationDto.getInfectiousTime());
+        Assertions.assertEquals(simulation.getTimeOfOnsetOfSymptoms(), simulationDto.getTimeOfOnsetOfSymptoms());
+        Assertions.assertEquals(simulation.getTimeOfDyingFromIncubation(), simulationDto.getTimeOfDyingFromIncubation());
         areRecordsEquals(simulation.getRecords(), simulationDto.getRecords());
     }
 

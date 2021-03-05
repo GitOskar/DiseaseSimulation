@@ -21,9 +21,9 @@ public class SimulationMapperTest {
     @Test
     void mapped_simulation_is_equal_to_simulation_summary_dto() {
         List<SirRecord> records = Arrays.asList(
-                new SirRecord(1, 2, 3, null),
-                new SirRecord(5, 1, 2, null),
-                new SirRecord(8, 1, 3, null)
+                new SirRecord(1, 2, 3),
+                new SirRecord(5, 1, 2),
+                new SirRecord(8, 1, 3)
         );
         Sir sir = Sir.builder()
                 .name("Example name")

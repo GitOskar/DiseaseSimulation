@@ -5,7 +5,7 @@ import pl.umcs.diseasesimulation.domain.agregate.seirds.Seirds;
 
 import java.util.List;
 
-public interface SeridsService {
+public interface SeirdsService {
     SeirdsDto addSimulation(Seirds simulation);
     List<SeirdsDto> findAll();
     SeirdsDto updateSimulation(Seirds simulation);

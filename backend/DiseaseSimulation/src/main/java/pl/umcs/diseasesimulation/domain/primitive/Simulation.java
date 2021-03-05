@@ -10,8 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-@Getter @Setter @SuperBuilder
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Simulation extends BaseEntity {
     @Column(name = "NAME", length = 50)
     protected String name;

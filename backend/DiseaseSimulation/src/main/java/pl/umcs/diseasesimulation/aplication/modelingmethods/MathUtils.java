@@ -5,19 +5,39 @@ public abstract class MathUtils {
         return value - Math.floor(value);
     }
 
-    public static double max(double a, double b, double c) {
-        return Math.max(a, Math.max(b, c));
+    public static double max(double ... numbers) {
+        double result = numbers[0];
+
+        for (int i=1 ; i<numbers.length ; i++)
+            result = Math.max(result, numbers[i]);
+
+        return result;
     }
 
-    public static double min(double a, double b, double c) {
-        return Math.min(a, Math.min(b, c));
+    public static double min(double ... numbers) {
+        double result = numbers[0];
+
+        for (int i=1 ; i<numbers.length ; i++)
+            result = Math.min(result, numbers[i]);
+
+        return result;
     }
 
-    public static double maxFractional(double a, double b, double c) {
-        return max(fractional(a), fractional(b), fractional(c));
+    public static double minFractional(double ... numbers) {
+        double result = fractional(numbers[0]);
+
+        for (int i=1 ; i<numbers.length ; i++)
+            result = Math.min(result, fractional(numbers[i]));
+
+        return result;
     }
 
-    public static double minFractional(double a, double b, double c) {
-        return min(fractional(a), fractional(b), fractional(c));
+    public static double maxFractional(double ... numbers) {
+        double result = fractional(numbers[0]);
+
+        for (int i=1; i<numbers.length ; i++)
+            result = Math.max(result, fractional(numbers[i]));
+
+        return result;
     }
 }

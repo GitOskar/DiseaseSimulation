@@ -9,8 +9,11 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 
 @MappedSuperclass
-@Getter @Setter @SuperBuilder
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class BaseEntity {
     @Id @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

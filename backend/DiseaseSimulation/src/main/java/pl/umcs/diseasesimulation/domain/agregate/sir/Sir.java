@@ -8,9 +8,13 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@AllArgsConstructor @NoArgsConstructor
-@Getter @Setter @SuperBuilder
-@Entity @Table(name = "SIR")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@SuperBuilder
+@Entity
+@Table(name = "SIR")
 public class Sir extends Simulation {
     @Column(name = "DISEASE_DURATION")
     private int diseaseDuration;

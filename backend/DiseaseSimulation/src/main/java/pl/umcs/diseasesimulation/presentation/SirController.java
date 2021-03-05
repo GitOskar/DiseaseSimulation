@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/sir")
+@CrossOrigin
 public class SirController {
     @Autowired
     SirService service;

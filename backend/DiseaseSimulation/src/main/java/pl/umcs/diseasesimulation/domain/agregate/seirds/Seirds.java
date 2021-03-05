@@ -10,9 +10,13 @@ import pl.umcs.diseasesimulation.domain.primitive.Simulation;
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor @NoArgsConstructor
-@Getter @Setter @SuperBuilder
-@Entity @Table(name = "SEIRDS")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@SuperBuilder
+@Entity
+@Table(name = "SEIRDS")
 public class Seirds extends Simulation {
     @Column(name = "IMMUNITY_TIME")
     private double immunityTime;
@@ -32,10 +36,16 @@ public class Seirds extends Simulation {
     private double reductionByRestrictions;
     @Column(name = "PERCENTAGE_OF_POPULATION_WHEN_RESTRICTIONS_BEGINS")
     private double percentageOfPopulationWhenRestrictionsBegins;
-    @Column(name = "PERCENTAGE_OF_POPULATION_WHEN_RESTRICTIONS_ENDS")
-    private double percentageOfPopulationWhenRestrictionsEnds;
+    @Column(name = "DAYS_OF_RESTRICTIONS")
+    private double daysOfRestrictions;
     @Column(name = "INFECTIOUS_TIME")
     private double infectiousTime;
+    @Column(name = "TIME_OF_ONSET_OF_SYMPTOMS")
+    private double timeOfOnsetOfSymptoms;
+    @Column(name = "TIME_OF_DYING_FROM_INCUBATION")
+    private double timeOfDyingFromIncubation;
     @OneToMany(mappedBy = "simulation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SeirdsRecord> records;
+
+
 }

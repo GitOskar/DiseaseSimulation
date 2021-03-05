@@ -4,8 +4,10 @@ import lombok.*;
 
 import java.util.List;
 
-@AllArgsConstructor @Builder
-@Getter @Setter
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
 public class SirDto {
     private Integer id;
     private String name;
