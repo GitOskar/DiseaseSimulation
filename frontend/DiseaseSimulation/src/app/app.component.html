@@ -36,6 +36,11 @@
   <h2>Pick simulation that you want too see</h2>
   <p>After click you will see a linear graph that will show how the disease spreads</p>
 
+  <div class="card-container" [ngSwitch]="selection.value">
+      <app-seirds-component *ngSwitchCase="'seirds'"></app-seirds-component>
+      <app-sir-component *ngSwitchCase="'sir'"></app-sir-component>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2021 diseasesimulation.umcs.pl</p>

@@ -6,14 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SirComponentComponent } from './simulation-components/sir-component/sir-component.component';
 import { SeirdsComponentComponent } from './simulation-components/seirds-component/seirds-component.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SeirdsChartComponent } from './simulation-components/seirds-component/seirds-chart/seirds-chart.component'
+import { SeirdsChartComponent } from './simulation-components/seirds-component/seirds-chart/seirds-chart.component';
+import { SirChartComponent } from './simulation-components/sir-component/sir-chart/sir-chart.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SirComponentComponent,
     SeirdsComponentComponent,
-    SeirdsChartComponent
+    SeirdsChartComponent,
+    SirChartComponent
   ],
   imports: [
     BrowserModule,

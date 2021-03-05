@@ -9,6 +9,7 @@ import { Sir, SirService } from 'src/app/services/sir/sir.service';
 export class SirComponentComponent implements OnInit {
 
   simulations: Sir[];
+  simulationToDisplay: Sir;
 
   constructor(private service: SirService) { }
 
@@ -24,7 +25,7 @@ export class SirComponentComponent implements OnInit {
     console.log("TODO IMPLEMENT ADD SIMULATION");
   }
 
-  createGraph(value: number): void {
-    console.log(value);
+  createGraph(index: number): void {
+    this.simulationToDisplay = this.simulations[index];
   }
 }

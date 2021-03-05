@@ -1,21 +1,21 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Sir } from 'src/app/services/sir/sir.service';
 import { Chart } from 'node_modules/chart.js';
-import { bindCallback } from 'rxjs';
-import { Seirds, SeirdsRecord } from 'src/app/services/seirds/seirds.service';
 
 @Component({
-  selector: 'app-seirds-chart',
-  templateUrl: './seirds-chart.component.html',
-  styleUrls: ['./seirds-chart.component.css']
+  selector: 'app-sir-chart',
+  templateUrl: './sir-chart.component.html',
+  styleUrls: ['./sir-chart.component.css']
 })
-export class SeirdsChartComponent implements OnInit, OnChanges {
+export class SirChartComponent implements OnInit, OnChanges {
 
-  @Input() simulation: Seirds;
+  @Input() simulation: Sir;
   title: string;
+
   constructor() { }
 
   ngOnInit(): void {
-    var seirdsChart = new Chart("seirdsChart", {
+    var seirdsChart = new Chart("sirChart", {
       type: 'line',
       options: {
         scales: {
@@ -29,20 +29,17 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
     });
     this.title = "Title";
   }
-
-
-
+  
   ngOnChanges(changes: SimpleChanges) {
 
     
-    const susbeptible = this.simulation.records.map(SeirdsRecord => SeirdsRecord.susceptible);
-    const exposed = this.simulation.records.map(SeirdsRecord => SeirdsRecord.exposed);
-    const infected = this.simulation.records.map(SeirdsRecord => SeirdsRecord.infected);
-    const recovered = this.simulation.records.map(SeirdsRecord => SeirdsRecord.recovered);
-    const deaths = this.simulation.records.map(SeirdsRecord => SeirdsRecord.deaths);
+    const susbeptible = this.simulation.records.map(SirRecord => SirRecord.susceptible);
+    const infected = this.simulation.records.map(SirRecord => SirRecord.infected);
+    const removed = this.simulation.records.map(SirRecord => SirRecord.removed);
+    
     let label = Array.from(Array(this.simulation.daysOfSimulation).keys());
 
-    var seirdsChart = new Chart("seirdsChart", {
+    var seirdsChart = new Chart("sirChart", {
       type: 'line',
       data: {
         labels: label,
@@ -55,13 +52,6 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
             borderColor: 'rgb(45, 203, 227)'
           },
           {
-            label: "Exposed",
-            data: exposed,
-            fill: false,
-            backgroundColor: 'rgb(246, 255, 115)',
-            borderColor: 'rgb(2246, 255, 115)'
-          },
-          {
             label: "Infected",
             data: infected,
             fill: false,
@@ -69,18 +59,11 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
             borderColor: 'rgb(230, 30, 50)'
           },
           {
-            label: "Recovered",
-            data: recovered,
+            label: "Removed",
+            data: removed,
             fill: false,
             backgroundColor: 'rgb(109, 227, 129)',
             borderColor: 'rgb(109, 227, 129)'
-          },
-          {
-            label: "Deaths",
-            data: deaths,
-            fill: false,
-            backgroundColor: 'rgb(82, 82, 82)',
-            borderColor: 'rgb(82, 82, 82)'
           }
         ]
       },
