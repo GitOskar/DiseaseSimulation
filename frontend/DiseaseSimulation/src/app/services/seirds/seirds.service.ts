@@ -14,9 +14,13 @@ export class SeirdsService {
   public getAllSimulations(): Observable<Seirds[]> {
     return this.httpClient.get<Seirds[]>(this.url + '/all');
   } 
+
+  public addSimulation(simulation: Seirds): Observable<Seirds> {
+    return this.httpClient.post<Seirds>(this.url, simulation);
+  }
 }
 
-export interface SeirdsRecord {
+export class SeirdsRecord {
   susceptible: number;
   exposed: number;
   infected: number;
@@ -25,7 +29,7 @@ export interface SeirdsRecord {
   quarantined: number;
 }
 
-export interface Seirds {
+export class Seirds {
   id: number;
   name: string;
   population: number;

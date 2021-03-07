@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Seirds, SeirdsService } from 'src/app/services/seirds/seirds.service';
+import { SeirdsAddDialogComponent } from './seirds-add-dialog/seirds-add-dialog.component';
 
 @Component({
   selector: 'app-seirds-component',
@@ -11,7 +13,7 @@ export class SeirdsComponentComponent implements OnInit {
   simulations: Seirds[];
   simulationToDisplay: Seirds;
 
-  constructor(private service: SeirdsService) { }
+  constructor(private service: SeirdsService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllSimulations().subscribe(
@@ -22,7 +24,15 @@ export class SeirdsComponentComponent implements OnInit {
   }
 
   addSimulation(): void {
-    console.log("TODO IMPLEMENT ADD SIMULATION");
+    let dialogRef = this.dialog.open(SeirdsAddDialogComponent, {
+      height: '700px',
+      width: '800px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.service.addSimulation(result).subscribe(value =>
+        this.simulations.push(value));
+    })
   }
 
   createGraph(index: number): void {
