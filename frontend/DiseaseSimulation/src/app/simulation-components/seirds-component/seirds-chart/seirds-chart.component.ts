@@ -11,7 +11,6 @@ import { Seirds, SeirdsRecord } from 'src/app/services/seirds/seirds.service';
 export class SeirdsChartComponent implements OnInit, OnChanges {
 
   @Input() simulation: Seirds;
-  title: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -27,7 +26,6 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
         }
       }
     });
-    this.title = "Title";
   }
 
 
@@ -96,6 +94,5 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
         }
       }
     });
-    this.title = this.simulation.name;
   }
 }

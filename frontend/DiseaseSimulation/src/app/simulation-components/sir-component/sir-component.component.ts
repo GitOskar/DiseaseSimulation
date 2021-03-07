@@ -10,6 +10,7 @@ export class SirComponentComponent implements OnInit {
 
   simulations: Sir[];
   simulationToDisplay: Sir;
+  title = "";
 
   constructor(private service: SirService) { }
 
@@ -27,5 +28,6 @@ export class SirComponentComponent implements OnInit {
 
   createGraph(index: number): void {
     this.simulationToDisplay = this.simulations[index];
+    this.title = this.simulationToDisplay.name;
   }
 }

@@ -12,6 +12,7 @@ export class SeirdsComponentComponent implements OnInit {
 
   simulations: Seirds[];
   simulationToDisplay: Seirds;
+  title = "";
 
   constructor(private service: SeirdsService, private dialog: MatDialog) { }
 
@@ -37,5 +38,6 @@ export class SeirdsComponentComponent implements OnInit {
 
   createGraph(index: number): void {
     this.simulationToDisplay = this.simulations[index];
+    this.title = this.simulationToDisplay.name;
   }
 }

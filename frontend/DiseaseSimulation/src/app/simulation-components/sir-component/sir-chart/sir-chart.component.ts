@@ -10,7 +10,6 @@ import { Chart } from 'node_modules/chart.js';
 export class SirChartComponent implements OnInit, OnChanges {
 
   @Input() simulation: Sir;
-  title: string;
 
   constructor() { }
 
@@ -27,7 +26,6 @@ export class SirChartComponent implements OnInit, OnChanges {
         }
       }
     });
-    this.title = "Title";
   }
   
   ngOnChanges(changes: SimpleChanges) {
@@ -79,6 +77,5 @@ export class SirChartComponent implements OnInit, OnChanges {
         }
       }
     });
-    this.title = this.simulation.name;
   }
 }
