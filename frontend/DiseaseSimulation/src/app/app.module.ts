@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon';
+import { SeirdsUpdateDialogComponent } from './simulation-components/seirds-component/seirds-update-dialog/seirds-update-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button'
     SeirdsComponentComponent,
     SeirdsChartComponent,
     SirChartComponent,
-    SeirdsAddDialogComponent
+    SeirdsAddDialogComponent,
+    SeirdsUpdateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { MatButtonModule } from '@angular/material/button'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

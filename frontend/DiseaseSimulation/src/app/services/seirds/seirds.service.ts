@@ -18,6 +18,10 @@ export class SeirdsService {
   public addSimulation(simulation: Seirds): Observable<Seirds> {
     return this.httpClient.post<Seirds>(this.url, simulation);
   }
+
+  public updateSimulation(simulation: Seirds): Observable<Seirds> {
+    return this.httpClient.put<Seirds>(this.url, simulation);
+  }
 }
 
 export class SeirdsRecord {

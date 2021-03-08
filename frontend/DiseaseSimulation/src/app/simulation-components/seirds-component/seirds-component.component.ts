@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Seirds, SeirdsService } from 'src/app/services/seirds/seirds.service';
 import { SeirdsAddDialogComponent } from './seirds-add-dialog/seirds-add-dialog.component';
+import { SeirdsUpdateDialogComponent } from './seirds-update-dialog/seirds-update-dialog.component';
 
 @Component({
   selector: 'app-seirds-component',
@@ -13,6 +14,7 @@ export class SeirdsComponentComponent implements OnInit {
   simulations: Seirds[];
   simulationToDisplay: Seirds;
   title = "";
+  currentIndex: number;
 
   constructor(private service: SeirdsService, private dialog: MatDialog) { }
 
@@ -39,5 +41,25 @@ export class SeirdsComponentComponent implements OnInit {
   createGraph(index: number): void {
     this.simulationToDisplay = this.simulations[index];
     this.title = this.simulationToDisplay.name;
+    this.currentIndex = index;
+  }
+
+  updateSimulation() {
+    let dialogRef = this.dialog.open(SeirdsUpdateDialogComponent, {
+      height: '700px',
+      width: '800px',
+      data: this.simulationToDisplay
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.service.updateSimulation(result).subscribe(value => {
+        this.simulationToDisplay = value;
+        this.simulations[this.currentIndex] = value;
+        });
+      })}
+
+  delete() {
+    //this.service.delete(this.currentIndex);
+    this.simulationToDisplay = null;
   }
 }

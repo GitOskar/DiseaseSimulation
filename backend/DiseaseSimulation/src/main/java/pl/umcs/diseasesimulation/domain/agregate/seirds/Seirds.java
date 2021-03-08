@@ -1,9 +1,6 @@
 package pl.umcs.diseasesimulation.domain.agregate.seirds;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import pl.umcs.diseasesimulation.domain.primitive.Simulation;
 
@@ -16,6 +13,7 @@ import java.util.List;
 @Setter
 @SuperBuilder
 @Entity
+@Data
 @Table(name = "SEIRDS")
 public class Seirds extends Simulation {
     @Column(name = "IMMUNITY_TIME")
@@ -47,5 +45,29 @@ public class Seirds extends Simulation {
     @OneToMany(mappedBy = "simulation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SeirdsRecord> records;
 
+    public void deleteAllRecords() {
+        records.clear();
+    }
+
+    public void update(Seirds simulation) {
+        timeOfDyingFromIncubation = simulation.getTimeOfDyingFromIncubation();
+        infectiousTime = simulation.getInfectiousTime();
+        reproductionRate = simulation.getReproductionRate();
+        name = simulation.getName();
+        population = simulation.getPopulation();
+        initialInfectedNumber = simulation.getInitialInfectedNumber();
+        birthRate = simulation.getBirthRate();
+        daysOfRestrictions = simulation.getDaysOfRestrictions();
+        diseaseDeathRate = simulation.getDiseaseDeathRate();
+        immunityTime = simulation.getImmunityTime();
+        percentageOfPopulationWhenRestrictionsBegins = simulation.getPercentageOfPopulationWhenRestrictionsBegins();
+        incubationTime = simulation.getIncubationTime();
+        quarantineRate = simulation.getQuarantineRate();
+        diseaseDuration = simulation.getDiseaseDuration();
+        timeOfOnsetOfSymptoms = simulation.getTimeOfOnsetOfSymptoms();
+        naturalDeathRate = simulation.getNaturalDeathRate();
+        reductionByRestrictions = simulation.getReductionByRestrictions();
+        daysOfSimulation = simulation.getDaysOfSimulation();
+    }
 
 }

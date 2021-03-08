@@ -1,4 +1,8 @@
-<h2>{{ title }}</h2>
+<h2>
+  {{ title }}&nbsp;&nbsp;
+  <button *ngIf="title" mat-mini-fab color="primary" (click)="updateSimulation()"><mat-icon>mode_edit</mat-icon></button>&nbsp;&nbsp;
+  <button *ngIf="title" mat-mini-fab color="warn" (click)="delete()"><mat-icon>delete</mat-icon></button>
+</h2>
 <app-seirds-chart [simulation]="simulationToDisplay"></app-seirds-chart>
 <div class="card-container">
   <div *ngFor='let simulation of simulations; let i = index'>
@@ -8,11 +12,10 @@
     </div>
   </div>
   <div class="card card-small" (click)="addSimulation()" tabindex="0">
-    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+    </svg>
+
     <span>Add new simulation</span>
   </div>
 </div>
-
-    
-  

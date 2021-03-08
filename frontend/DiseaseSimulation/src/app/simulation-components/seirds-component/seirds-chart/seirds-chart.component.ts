@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Chart } from 'node_modules/chart.js';
-import { bindCallback } from 'rxjs';
 import { Seirds, SeirdsRecord } from 'src/app/services/seirds/seirds.service';
 
 @Component({
@@ -11,10 +10,11 @@ import { Seirds, SeirdsRecord } from 'src/app/services/seirds/seirds.service';
 export class SeirdsChartComponent implements OnInit, OnChanges {
 
   @Input() simulation: Seirds;
+  seirdsChart: Chart;
   constructor() { }
 
   ngOnInit(): void {
-    var seirdsChart = new Chart("seirdsChart", {
+    this.seirdsChart = new Chart("seirdsChart", {
       type: 'line',
       options: {
         scales: {
@@ -31,8 +31,6 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges) {
-
-    
     const susbeptible = this.simulation.records.map(SeirdsRecord => SeirdsRecord.susceptible);
     const exposed = this.simulation.records.map(SeirdsRecord => SeirdsRecord.exposed);
     const infected = this.simulation.records.map(SeirdsRecord => SeirdsRecord.infected);
@@ -40,7 +38,9 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
     const deaths = this.simulation.records.map(SeirdsRecord => SeirdsRecord.deaths);
     let label = Array.from(Array(this.simulation.daysOfSimulation).keys());
 
-    var seirdsChart = new Chart("seirdsChart", {
+    this.seirdsChart.destroy();
+
+    this.seirdsChart = new Chart("seirdsChart", {
       type: 'line',
       data: {
         labels: label,

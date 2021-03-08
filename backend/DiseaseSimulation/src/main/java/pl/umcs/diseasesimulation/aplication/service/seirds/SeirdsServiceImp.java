@@ -3,6 +3,7 @@ package pl.umcs.diseasesimulation.aplication.service.seirds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpClientErrorException;
 import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.diseasesimulation.aplication.dto.seirds.SeirdsDto;
 import pl.umcs.diseasesimulation.aplication.modelingmethods.seirds.SeirdsRecordCreator;
@@ -39,9 +40,16 @@ public class SeirdsServiceImp implements SeirdsService {
                 .collect(Collectors.toList());
     }
 
-    @Override
+    @Override @Transactional
     public SeirdsDto updateSimulation(Seirds simulation) {
-        throw new UnsupportedOperationException("update seirds");
+        Seirds seirds = repository.findById(simulation.getId()).orElseThrow();
+        seirds.deleteAllRecords();
+
+        seirds.update(simulation);
+
+        SeirdsRecordCreator recordCreator = new SeirdsRecordCreator(simulation);
+        recordCreator.createRecords().forEach(v -> seirds.getRecords().add(v));
+        return mapper.SeirdsToSeirdsDto(seirds);
     }
 
     @Override @Transactional

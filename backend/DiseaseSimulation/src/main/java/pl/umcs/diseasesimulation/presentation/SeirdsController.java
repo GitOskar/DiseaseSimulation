@@ -29,7 +29,7 @@ public class SeirdsController {
         return service.findAll();
     }
 
-    @PutMapping()
+    @PutMapping
     public SeirdsDto updateSimulation(@RequestBody Seirds simulation) {
         return service.updateSimulation(simulation);
     }
