@@ -10,11 +10,12 @@ import { Chart } from 'node_modules/chart.js';
 export class SirChartComponent implements OnInit, OnChanges {
 
   @Input() simulation: Sir;
+  sirChart: Chart;
 
   constructor() { }
 
   ngOnInit(): void {
-    var seirdsChart = new Chart("sirChart", {
+    this.sirChart = new Chart("sirChart", {
       type: 'line',
       options: {
         scales: {
@@ -29,7 +30,11 @@ export class SirChartComponent implements OnInit, OnChanges {
   }
   
   ngOnChanges(changes: SimpleChanges) {
-
+    this.sirChart.destroy();
+    if (!this.simulation) {
+      this.ngOnInit();
+      return;
+    }
     
     const susbeptible = this.simulation.records.map(SirRecord => SirRecord.susceptible);
     const infected = this.simulation.records.map(SirRecord => SirRecord.infected);
@@ -37,7 +42,7 @@ export class SirChartComponent implements OnInit, OnChanges {
     
     let label = Array.from(Array(this.simulation.daysOfSimulation).keys());
 
-    var seirdsChart = new Chart("sirChart", {
+    this.sirChart = new Chart("sirChart", {
       type: 'line',
       data: {
         labels: label,

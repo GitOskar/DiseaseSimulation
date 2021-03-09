@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { SeirdsUpdateDialogComponent } from './simulation-components/seirds-component/seirds-update-dialog/seirds-update-dialog.component';
+import { SirAddDialogComponent } from './simulation-components/sir-component/sir-add-dialog/sir-add-dialog.component';
+import { SirUpdateDialogComponent } from './simulation-components/sir-component/sir-update-dialog/sir-update-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SeirdsUpdateDialogComponent } from './simulation-components/seirds-comp
     SirChartComponent,
     SeirdsAddDialogComponent,
     SeirdsUpdateDialogComponent,
+    SirAddDialogComponent,
+    SirUpdateDialogComponent,
   ],
   imports: [
     BrowserModule,

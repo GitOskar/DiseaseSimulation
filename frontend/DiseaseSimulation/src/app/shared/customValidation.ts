@@ -1,5 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Seirds } from '../services/seirds/seirds.service';
+import { Sir } from '../services/sir/sir.service';
 
 export function integer(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -29,6 +30,17 @@ export function seirdsValidation(simulation: Seirds): string {
     return "Time of onset of symptoms cannot be greather than disease duration*";
   else if (simulation.timeOfDyingFromIncubation > simulation.diseaseDuration)
     return "Time of dying cannot be greather than disease duration*";
+  else
+    return "";
+}
+
+export function sirValidation(simulation: Sir): string {
+  if (simulation.birthRate > 0.5)
+    return "Birth rate is too high. Has to be less than 0.5*"
+  else if (simulation.deathRate > 0.5)
+    return "Death rate is too high. Has to be less than 0.5*"
+  else if (simulation.population < simulation.initialInfectedNumber)
+    return "Population cannot be less than initial infected number*";
   else
     return "";
 }

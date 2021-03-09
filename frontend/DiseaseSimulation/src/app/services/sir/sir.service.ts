@@ -13,16 +13,29 @@ export class SirService {
 
   public getAllSimulations(): Observable<Sir[]> {
     return this.httpClient.get<Sir[]>(this.url + '/all');
-  } 
+  }
+  
+  public addSimulation(simulation: Sir): Observable<Sir> {
+    return this.httpClient.post<Sir>(this.url, simulation);
+  }
+
+  public updateSimulation(simulation: Sir): Observable<Sir> {
+    return this.httpClient.put<Sir>(this.url, simulation);
+  }
+
+  public deleteSimulation(id: number): void {
+    let endpoint = "/" + id;
+    this.httpClient.delete(this.url + endpoint).subscribe();
+  }
 }
 
-export interface SirRecord {
+export class SirRecord {
   infected: number;
   susceptible: number;
   removed: number;
 }
 
-export interface Sir {
+export class Sir {
   id: number;
   name: string;
   population: number;

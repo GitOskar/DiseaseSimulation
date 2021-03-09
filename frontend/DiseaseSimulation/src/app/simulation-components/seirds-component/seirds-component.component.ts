@@ -29,7 +29,7 @@ export class SeirdsComponentComponent implements OnInit {
   addSimulation(): void {
     let dialogRef = this.dialog.open(SeirdsAddDialogComponent, {
       height: '700px',
-      width: '800px',
+      width: '750px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -47,7 +47,7 @@ export class SeirdsComponentComponent implements OnInit {
   updateSimulation() {
     let dialogRef = this.dialog.open(SeirdsUpdateDialogComponent, {
       height: '700px',
-      width: '800px',
+      width: '750px',
       data: this.simulationToDisplay
     });
 
