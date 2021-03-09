@@ -55,11 +55,14 @@ export class SeirdsComponentComponent implements OnInit {
       this.service.updateSimulation(result).subscribe(value => {
         this.simulationToDisplay = value;
         this.simulations[this.currentIndex] = value;
+        this.title = value.name;
         });
       })}
 
   delete() {
-    //this.service.delete(this.currentIndex);
-    this.simulationToDisplay = null;
+    this.service.deleteSimulation(this.simulations[this.currentIndex].id);
+    this.simulations.splice(this.currentIndex, 1);
+    delete this.simulationToDisplay;
+    this.title = "";
   }
 }

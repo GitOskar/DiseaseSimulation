@@ -1,7 +1,7 @@
-import { Component, SimpleChange } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { integer } from 'src/app/shared/integerValidator';
+import { integer, seirdsValidation } from 'src/app/shared/customValidation';
 import { Seirds } from 'src/app/services/seirds/seirds.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { Seirds } from 'src/app/services/seirds/seirds.service';
 })
 export class SeirdsAddDialogComponent {
 
-error = "example error*";
+error = "";
 
   peopleNumber = [Validators.required, Validators.min(1), integer()];
   number = [Validators.required, Validators.min(0.0)];
@@ -38,6 +38,7 @@ error = "example error*";
   
 
   constructor(public dialogRef: MatDialogRef<SeirdsAddDialogComponent>) {
+    this.dialogRef.disableClose = true;
    }
 
   getPeopleNumberError(peopleNumberControl: FormControl): string {
@@ -67,27 +68,56 @@ error = "example error*";
 
   onAddClick(name, population, infected, daysOfSimulation, reproduction, immunity, incubation, diseaseDuration, daysOfRestrictions, infectiousTime, onsetOfSymptoms,
      timeOfDying, birthRate, naturalDeathRate, quarantineRate, diseaseDeathRate, reductionByRestrictions, beginsOfRestrictions) {
+
+      if (!this.isValid()) {
+        this.error = "Input is invalid*";
+        return;
+      }
+
     let simulation = new Seirds();
     simulation.name = name;
-    simulation.population = population;
-    simulation.initialInfectedNumber = infected;
-    simulation.daysOfSimulation = daysOfSimulation;
-    simulation.reproductionRate = reproduction;
-    simulation.immunityTime = immunity;
-    simulation.incubationTime = incubation;
-    simulation.diseaseDuration = diseaseDuration;
-    simulation.daysOfRestrictions = daysOfRestrictions;
-    simulation.infectiousTime = infectiousTime;
-    simulation.timeOfOnsetOfSymptoms = onsetOfSymptoms;
-    simulation.timeOfDyingFromIncubation = timeOfDying;
-    simulation.birthRate = birthRate;
-    simulation.naturalDeathRate = naturalDeathRate;
-    simulation.quarantineRate = quarantineRate;
-    simulation.diseaseDeathRate = diseaseDeathRate;
-    simulation.reductionByRestrictions = reductionByRestrictions;
-    simulation.percentageOfPopulationWhenRestrictionsBegins = beginsOfRestrictions;
+    simulation.population = Number.parseInt(population);
+    simulation.initialInfectedNumber = Number.parseInt(infected);
+    simulation.daysOfSimulation = Number.parseInt(daysOfSimulation);
+    simulation.reproductionRate = Number.parseFloat(reproduction);
+    simulation.immunityTime = Number.parseFloat(immunity);
+    simulation.incubationTime = Number.parseFloat(incubation);
+    simulation.diseaseDuration = Number.parseFloat(diseaseDuration);
+    simulation.daysOfRestrictions = Number.parseFloat(daysOfRestrictions);
+    simulation.infectiousTime = Number.parseFloat(infectiousTime);
+    simulation.timeOfOnsetOfSymptoms = Number.parseFloat(onsetOfSymptoms);
+    simulation.timeOfDyingFromIncubation = Number.parseFloat(timeOfDying);
+    simulation.birthRate = Number.parseFloat(birthRate);
+    simulation.naturalDeathRate = Number.parseFloat(naturalDeathRate);
+    simulation.quarantineRate = Number.parseFloat(quarantineRate);
+    simulation.diseaseDeathRate = Number.parseFloat(diseaseDeathRate);
+    simulation.reductionByRestrictions = Number.parseFloat(reductionByRestrictions);
+    simulation.percentageOfPopulationWhenRestrictionsBegins = Number.parseFloat(beginsOfRestrictions);
 
-    this.dialogRef.close(simulation);
+    this.error = seirdsValidation(simulation);
+
+    if (this.error == "")
+      this.dialogRef.close(simulation);
   }
 
+  isValid(): boolean {
+    return this.nameControl.valid &&
+      this.populationControl.valid &&
+      this.initialInfectedNumberControl.valid &&
+      this.daysOfSimulationControl.valid &&
+      this.reproductionRateControl.valid &&
+      this.immunityTimeControl.valid &&
+      this.incubationTimeControl.valid &&
+      this.diseaseDurationControl.valid &&
+      this.daysOfRestrictionsControl.valid &&
+      this.infectiousTimeControl.valid &&
+      this.timeOfOnsetOfSymptomsControl.valid &&
+      this.timeOfDyingFromIncubationControl.valid &&
+      this.birthRateControl.valid &&
+      this.naturalDeathRateControl.valid &&
+      this.quarantineRateControl.valid &&
+      this.diseaseDeathRateControl.valid &&
+      this.reductionByRestrictionsControl.valid &&
+      this.percentageOfPopulationWhenRestrictionsBeginsControl.valid
+  }
 }

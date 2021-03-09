@@ -31,14 +31,17 @@ export class SeirdsChartComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges) {
+    this.seirdsChart.destroy();
+    if (!this.simulation) {
+      this.ngOnInit();
+      return;
+    }
     const susbeptible = this.simulation.records.map(SeirdsRecord => SeirdsRecord.susceptible);
     const exposed = this.simulation.records.map(SeirdsRecord => SeirdsRecord.exposed);
     const infected = this.simulation.records.map(SeirdsRecord => SeirdsRecord.infected);
     const recovered = this.simulation.records.map(SeirdsRecord => SeirdsRecord.recovered);
     const deaths = this.simulation.records.map(SeirdsRecord => SeirdsRecord.deaths);
     let label = Array.from(Array(this.simulation.daysOfSimulation).keys());
-
-    this.seirdsChart.destroy();
 
     this.seirdsChart = new Chart("seirdsChart", {
       type: 'line',

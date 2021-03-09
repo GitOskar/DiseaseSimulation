@@ -3,7 +3,6 @@ package pl.umcs.diseasesimulation.aplication.service.seirds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.HttpClientErrorException;
 import pl.umcs.diseasesimulation.aplication.dto.mapper.SimulationMapper;
 import pl.umcs.diseasesimulation.aplication.dto.seirds.SeirdsDto;
 import pl.umcs.diseasesimulation.aplication.modelingmethods.seirds.SeirdsRecordCreator;

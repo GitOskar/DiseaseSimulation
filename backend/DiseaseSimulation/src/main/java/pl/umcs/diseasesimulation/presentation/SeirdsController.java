@@ -35,7 +35,8 @@ public class SeirdsController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSimulation(@PathVariable int id) {
+    public void deleteSimulation(@PathVariable("id") int id) {
+        System.out.println(id);
         service.deleteSimulation(id);
     }
 }

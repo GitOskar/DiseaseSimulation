@@ -22,6 +22,11 @@ export class SeirdsService {
   public updateSimulation(simulation: Seirds): Observable<Seirds> {
     return this.httpClient.put<Seirds>(this.url, simulation);
   }
+
+  public deleteSimulation(id: number): void {
+    let endpoint = "/" + id;
+    this.httpClient.delete(this.url + endpoint).subscribe();
+  }
 }
 
 export class SeirdsRecord {
