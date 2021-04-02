@@ -25,7 +25,7 @@ public class SeirdsDto {
     private Double diseaseDeathRate;
     private Double reductionByRestrictions;
     private Double percentageOfPopulationWhenRestrictionsBegins;
-    private Double daysOfRestrictions;
+    private Integer daysOfRestrictions;
     private Double infectiousTime;
     private Double timeOfOnsetOfSymptoms;
     private Double timeOfDyingFromIncubation;

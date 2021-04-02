@@ -11,7 +11,7 @@ import { Seirds } from 'src/app/services/seirds/seirds.service';
 })
 export class SeirdsAddDialogComponent {
 
-error = "";
+  error = "";
 
   peopleNumber = [Validators.required, Validators.min(1), integer()];
   number = [Validators.required, Validators.min(0.0)];
@@ -35,11 +35,11 @@ error = "";
   diseaseDeathRateControl = new FormControl('', this.numberBetweenOneAndTwo);
   reductionByRestrictionsControl = new FormControl('', this.numberBetweenOneAndTwo);
   percentageOfPopulationWhenRestrictionsBeginsControl = new FormControl('', this.numberBetweenOneAndTwo);
-  
+
 
   constructor(public dialogRef: MatDialogRef<SeirdsAddDialogComponent>) {
     this.dialogRef.disableClose = true;
-   }
+  }
 
   getPeopleNumberError(peopleNumberControl: FormControl): string {
     if (peopleNumberControl.hasError('required'))
@@ -67,12 +67,12 @@ error = "";
   }
 
   onAddClick(name, population, infected, daysOfSimulation, reproduction, immunity, incubation, diseaseDuration, daysOfRestrictions, infectiousTime, onsetOfSymptoms,
-     timeOfDying, birthRate, naturalDeathRate, quarantineRate, diseaseDeathRate, reductionByRestrictions, beginsOfRestrictions) {
+    timeOfDying, birthRate, naturalDeathRate, quarantineRate, diseaseDeathRate, reductionByRestrictions, beginsOfRestrictions) {
 
-      if (!this.isValid()) {
-        this.error = "Input is invalid*";
-        return;
-      }
+    if (!this.isValid()) {
+      this.error = "Input is invalid*";
+      return;
+    }
 
     let simulation = new Seirds();
     simulation.name = name;

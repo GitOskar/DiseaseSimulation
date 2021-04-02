@@ -35,7 +35,7 @@ public class Seirds extends Simulation {
     @Column(name = "PERCENTAGE_OF_POPULATION_WHEN_RESTRICTIONS_BEGINS")
     private double percentageOfPopulationWhenRestrictionsBegins;
     @Column(name = "DAYS_OF_RESTRICTIONS")
-    private double daysOfRestrictions;
+    private int daysOfRestrictions;
     @Column(name = "INFECTIOUS_TIME")
     private double infectiousTime;
     @Column(name = "TIME_OF_ONSET_OF_SYMPTOMS")

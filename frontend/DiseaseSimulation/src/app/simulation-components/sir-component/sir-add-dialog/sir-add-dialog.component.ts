@@ -28,9 +28,9 @@ export class SirAddDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<SirAddDialogComponent>) {
     this.dialogRef.disableClose = true;
-   }
+  }
 
-   getPeopleNumberError(peopleNumberControl: FormControl): string {
+  getPeopleNumberError(peopleNumberControl: FormControl): string {
     if (peopleNumberControl.hasError('required'))
       return 'You must enter a value';
     else if (peopleNumberControl.hasError('min'))
@@ -57,36 +57,35 @@ export class SirAddDialogComponent {
 
   onAddClick(name, population, infected, daysOfSimulation, reproduction, diseaseDuration, birthRate, deathRate) {
 
-     if (!this.isValid()) {
-       this.error = "Input is invalid*";
-       return;
-     }
+    if (!this.isValid()) {
+      this.error = "Input is invalid*";
+      return;
+    }
 
-   let simulation = new Sir();
-   simulation.name = name;
-   simulation.population = Number.parseInt(population);
-   simulation.initialInfectedNumber = Number.parseInt(infected);
-   simulation.daysOfSimulation = Number.parseInt(daysOfSimulation);
-   simulation.reproductionRate = Number.parseFloat(reproduction);
-   simulation.diseaseDuration = Number.parseFloat(diseaseDuration);
-   simulation.birthRate = Number.parseFloat(birthRate);
-   simulation.deathRate = Number.parseFloat(deathRate);
+    let simulation = new Sir();
+    simulation.name = name;
+    simulation.population = Number.parseInt(population);
+    simulation.initialInfectedNumber = Number.parseInt(infected);
+    simulation.daysOfSimulation = Number.parseInt(daysOfSimulation);
+    simulation.reproductionRate = Number.parseFloat(reproduction);
+    simulation.diseaseDuration = Number.parseFloat(diseaseDuration);
+    simulation.birthRate = Number.parseFloat(birthRate);
+    simulation.deathRate = Number.parseFloat(deathRate);
 
-   this.error = sirValidation(simulation);
+    this.error = sirValidation(simulation);
 
-   if (this.error == "")
-     this.dialogRef.close(simulation);
- }
+    if (this.error == "")
+      this.dialogRef.close(simulation);
+  }
 
- isValid(): boolean {
-  return this.nameControl.valid &&
-    this.populationControl.valid &&
-    this.initialInfectedNumberControl.valid &&
-    this.daysOfSimulationControl.valid &&
-    this.reproductionRateControl.valid &&
-    this.diseaseDurationControl.valid &&
-    this.birthRateControl.valid &&
-    this.deathRateControl.valid;
-}
-
+  isValid(): boolean {
+    return this.nameControl.valid &&
+      this.populationControl.valid &&
+      this.initialInfectedNumberControl.valid &&
+      this.daysOfSimulationControl.valid &&
+      this.reproductionRateControl.valid &&
+      this.diseaseDurationControl.valid &&
+      this.birthRateControl.valid &&
+      this.deathRateControl.valid;
+  }
 }

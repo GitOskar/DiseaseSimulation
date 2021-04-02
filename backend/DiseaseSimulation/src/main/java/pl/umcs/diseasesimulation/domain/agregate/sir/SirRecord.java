@@ -20,7 +20,8 @@ public class SirRecord extends BaseEntity implements Record {
     private long infected;
     @Column(name = "REMOVED")
     private long removed;
-    @ManyToOne @JoinColumn(name = "SIMULATION_ID")
+    @ManyToOne
+    @JoinColumn(name = "SIMULATION_ID")
     private Sir sir;
 
     public SirRecord(long susceptible, long infected, long removed) {

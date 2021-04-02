@@ -116,7 +116,7 @@ public class SeirdsRecordCreator {
         if (!areAnyRestrictions) {
             if (newInfected/population >= simulation.getPercentageOfPopulationWhenRestrictionsBegins()) {
                 reproductionRate *= simulation.getReductionByRestrictions();
-                dayOfRestriction = simulation.getDaysOfSimulation();
+                dayOfRestriction = simulation.getDaysOfRestrictions();
                 areAnyRestrictions = true;
             }
         }
