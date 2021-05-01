@@ -334,20 +334,35 @@
 											"top": 541,
 											"width": 541.5107421875,
 											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF3obDCC+UdoKI=",
+											"_parent": {
+												"$ref": "AAAAAAF3oR5IXTXaWJM="
+											},
+											"model": {
+												"$ref": "AAAAAAF3obDB+uUaL7E="
+											},
+											"font": "Arial;13;0",
+											"left": 197,
+											"top": 556,
+											"width": 541.5107421875,
+											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 192,
 									"top": 311,
 									"width": 551.5107421875,
-									"height": 248
+									"height": 263
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 192,
 							"top": 288,
 							"width": 551.5107421875,
-							"height": 271,
+							"height": 286,
 							"nameLabel": {
 								"$ref": "AAAAAAF3oR5IXTXZSP8="
 							},
@@ -819,6 +834,16 @@
 							},
 							"name": "Infection reduction by restrictions",
 							"type": "double",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF3obDB+uUaL7E=",
+							"_parent": {
+								"$ref": "AAAAAAF3oR5IXTXW6Qs="
+							},
+							"name": "Population",
+							"type": "long",
 							"length": 0
 						}
 					]

@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Update simulation</h1>
+<mat-error>{{ error }}</mat-error>
+<div class="input-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input #name type="text" matInput [(ngModel)]="data.name" [formControl]="nameControl" required>
+        <mat-error *ngIf="nameControl.invalid">You must enter a value</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Population</mat-label>
+        <input #population type="number" matInput [(ngModel)]="data.population" [formControl]="populationControl" required>
+        <mat-error *ngIf="populationControl.invalid">{{ getPeopleNumberError(populationControl) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Initial infected number</mat-label>
+        <input #infected type="number" matInput [(ngModel)]="data.initialInfectedNumber" [formControl]="initialInfectedNumberControl" required>
+        <mat-error *ngIf="initialInfectedNumberControl.invalid">{{ getPeopleNumberError(initialInfectedNumberControl) }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Number of days</mat-label>
+        <input #daysOfSimulation type="number" matInput [(ngModel)]="data.daysOfSimulation" [formControl]="daysOfSimulationControl" required>
+        <mat-error *ngIf="daysOfSimulationControl.invalid">{{ getPeopleNumberError(daysOfSimulationControl) }}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Initial reproduction rate</mat-label>
+        <input #reproduction type="number" matInput [(ngModel)]="data.reproductionRate" [formControl]="reproductionRateControl" required>
+        <mat-error *ngIf="reproductionRateControl.invalid">{{ getNumberError(reproductionRateControl) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Disease duration</mat-label>
+        <input #diseaseDuration type="number" matInput [(ngModel)]="data.diseaseDuration" [formControl]="diseaseDurationControl" required>
+        <mat-error *ngIf="diseaseDurationControl.invalid">{{ getNumberError(diseaseDurationControl) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Birth rate</mat-label>
+        <input #birthRate type="number" matInput [(ngModel)]="data.birthRate" [formControl]="birthRateControl" required>
+        <mat-error *ngIf="birthRateControl.invalid">{{ getNumberBetweenZeroAndOneError(birthRateControl) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Death rate</mat-label>
+        <input #deathRate type="number" matInput [(ngModel)]="data.deathRate" [formControl]="deathRateControl" required>
+        <mat-error *ngIf="deathRateControl.invalid">{{ getNumberBetweenZeroAndOneError(deathRateControl)
+            }}</mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button (click)="onUpdateClick(name.value, population.value, infected.value, daysOfSimulation.value, reproduction.value, diseaseDuration.value, birthRate.value, deathRate.value)" cdkFocusInitial>Update</button>
+    </mat-dialog-actions>
+</div>
