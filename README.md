@@ -16,10 +16,10 @@ Website was created for data presentation.
 
 #### Menu
 
-Main menu of the website
+Main menu of the website /
 ![Menu](/doc/menu.png)
 
 #### Form
 
-Add / Update form with data validation
-![Form](/doc/validation.png)
+Add / Update form with data validation /
+![Form](/doc/error-validation.png)
