@@ -11,10 +11,15 @@ Server is a RESTful application that makes calculations, stores data about simul
 
 Website was created for data presentation.
 
-### Disease lifecycyle
+#### Disease lifecycyle
 ![Infection diagram](/doc/infectiondiagram.png)
 
-### Menu
+#### Menu
 
 Main menu of the website
-![Alt text](/doc/infectiondiagram.png)
+![Menu](/doc/menu.png)
+
+#### Form
+
+Add / Update form with data validation
+![Form](/doc/validation.png)
