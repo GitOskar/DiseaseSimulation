@@ -26,3 +26,9 @@ Main menu of the website
 Add / Update form with data validation
 
 ![Form](/doc/error-validation.png)
+
+#### Graphs
+
+Empty graph - when simulation is not selected
+
+![Empty graph](/doc/empty-graph.png)
