@@ -41,4 +41,4 @@ Graph with values - when user added informations about model and server returns 
  
 User may also disable other values to get better view of rest
 
-![Graph removed values.png](/doc/graph-removed-values.png.png)
+![Graph removed values.png](/doc/graph-removed-values.png)
