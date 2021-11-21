@@ -1,7 +1,7 @@
 # DiseaseSimulation
 
 ## Describtion
-
+ 
 Repository conains 2 projects:
 
 - Server created with Spring-Boot
